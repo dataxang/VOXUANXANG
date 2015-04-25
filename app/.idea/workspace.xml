@@ -4,6 +4,7 @@
     <list default="true" id="7b565136-92e1-4e7c-a3f5-7bb5c33b1c69" name="Default" comment="" />
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +120,9 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7b565136-92e1-4e7c-a3f5-7bb5c33b1c69" name="Default" comment="" />
+      <created>1429945817532</created>
       <option name="number" value="Default" />
+      <updated>1429945817532</updated>
     </task>
     <servers />
   </component>
