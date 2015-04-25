@@ -76,9 +76,9 @@ Route::post('register',function()
 			$user = new User();
 			$user->username= Input::get('username');
 			$user->password= md5(sha1(Input::get('password')));
-			$user->email= Input::get('email');
+			$user->email= Input::get('email');//Temp comment for not using email
 			$user->save();
-			Session::put('register_success',Input::get('username')."đã đăng ký thành công");
+			Session::put('register_success',Input::get('username')." đã đăng ký thành công");
 			return Redirect::to('login');
 			//echo "Đăng ký  thành công!";
 
@@ -104,6 +104,7 @@ Route::post('login',function()
 		if(User::check_login(Input::get('user_input'),md5(sha1(Input::get('password')))))
 			{
 				Session::put('logined','true');
+                Session::put('current_user', Input::get('user_input'));
 				return Redirect::to('home');
 				// return "Đăng nhập  thành công!";
 			}
@@ -127,3 +128,20 @@ Route::get('/home', function()
     return View::make('home');
 
 });
+
+
+Route::get('/about', function()
+{
+    return View::make('employee.index');
+
+});
+
+
+Route::get('/contact', function()
+{
+    return View::make('contact');
+
+});
+
+Route::resource('employee' , 'EmployeeController@CalculateSalary' );
+Route::resource('home', 'EmployeeController');//use UController.php
