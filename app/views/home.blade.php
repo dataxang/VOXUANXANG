@@ -1,11 +1,9 @@
 @extends('layout')
-{{ HTML::style('jqxgrid/styles/jqx.base.css') }}
 @section('content')
     <section>
     </section>
 
     <section class="header section-padding">
-
 
     </section>
 
@@ -29,7 +27,7 @@
                     <tr>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ link_to_route('employee.index', 'Calculate Salary', array("id"=>$user->id,"name"=>$user->username,"email"=>$user->email), array('class' => 'btn btn-info')) }}</td>
+                        <td>{{ link_to_route('employee.edit', 'Calculate Salary', array($user->id), array('class' => 'btn btn-info')) }}</td>
                     </tr>
                 @endforeach
 

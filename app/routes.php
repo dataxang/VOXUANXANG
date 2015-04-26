@@ -143,5 +143,6 @@ Route::get('/contact', function()
 
 });
 
-Route::resource('employee' , 'EmployeeController@CalculateSalary' );
+Route::resource('employee' , 'EmployeeController@edit' );
 Route::resource('home', 'EmployeeController');//use UController.php
+

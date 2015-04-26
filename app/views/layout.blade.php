@@ -27,9 +27,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./home">Home</a></li>
+                <li><a href="{{Asset('home')}}">Home</a></li>
                 {{--<li><a href="./employee">employee</a></li>--}}
-                <li><a href="./contact">Contact</a></li>
+                <li><a href="{{Asset('contact')}}">Contact</a></li>
                 <li><a href="{{Asset('logout')}}"> Logout<?php echo("(".Session::get('current_user').")"); ?></a></li>
                 <!--way2 <li><a href="./logout">Logout</a></li> -->
             </ul>

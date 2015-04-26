@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2015 at 07:08 AM
+-- Generation Time: Apr 25, 2015 at 10:02 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -61,19 +61,18 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `created_at` date DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id`, `employeetype_id`, `username`, `password`, `lastname`, `firstname`, `isaccountant`, `updated_at`, `created_at`, `email`) VALUES
-(1, 0, 'admin', 'd93a5def7511da3d0f2d171d9c344e91', '', '', 0, '2015-04-25', '2015-04-25', NULL),
-(2, 0, 'test', 'd93a5def7511da3d0f2d171d9c344e91', '', '', 0, '2015-04-25', '2015-04-25', NULL),
-(3, 0, 'xang', 'd93a5def7511da3d0f2d171d9c344e91', '', '', 0, '2015-04-25', '2015-04-25', NULL),
-(4, 0, 'hieu', 'd93a5def7511da3d0f2d171d9c344e91', '', '', 0, '2015-04-25', '2015-04-25', 'hieu@gmail.com'),
-(5, 0, 'long', 'd93a5def7511da3d0f2d171d9c344e91', '', '', 0, '2015-04-25', '2015-04-25', 'hieu@gmail.com'),
-(6, 0, 'xangvo', 'd93a5def7511da3d0f2d171d9c344e91', '', '', 0, '2015-04-25', '2015-04-25', 'xangvo@gmail.com');
+(1, 1, 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'Admin', 'Pike', 0, '2015-04-25', '2015-04-25', 'admin@gmail.com'),
+(4, 1, 'hieu', 'd93a5def7511da3d0f2d171d9c344e91', 'Hieu', 'Nguyen', 1, '2015-04-25', '2015-04-25', 'hieu@gmail.com'),
+(5, 1, 'long', 'd93a5def7511da3d0f2d171d9c344e91', 'Long', 'Tran', 0, '2015-04-25', '2015-04-25', 'long@gmail.com'),
+(7, 2, 'hung', 'd93a5def7511da3d0f2d171d9c344e91', 'Hung', 'Nguyen', 0, '2015-04-25', '2015-04-25', 'hung@gmail.com'),
+(8, 3, 'lan', 'd93a5def7511da3d0f2d171d9c344e91', 'Lan', 'Pham', 0, '2015-04-25', '2015-04-25', 'lan@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -93,7 +92,36 @@ CREATE TABLE IF NOT EXISTS `tbl_weeklysalary` (
   `created_date` datetime NOT NULL,
   `comment` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `tbl_weeklysalary`
+--
+
+INSERT INTO `tbl_weeklysalary` (`id`, `user_id`, `basic_salary`, `worked_hour`, `gross_sale`, `commission_rate`, `gross_salary`, `net_salary`, `created_date`, `comment`) VALUES
+(1, 0, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'xxx'),
+(2, 1, 5000, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'xxxxee'),
+(3, 4, 1100, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', '1100'),
+(4, 5, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', '500'),
+(5, 1, 1, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', '1'),
+(6, 1, 1100, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', '1100'),
+(7, 1, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', '2222222'),
+(8, 1, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'eee'),
+(9, 1, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'sfdf'),
+(10, 1, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'www'),
+(11, 1, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'wweww'),
+(12, 1, 1100, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', '1234221234'),
+(13, 1, 500, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'xx555'),
+(14, 7, 30, 1, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'Hourly Employee'),
+(15, 7, 30, 2, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'Hourly Employee'),
+(16, 8, 400, NULL, 20, 15, 0, 0, '0000-00-00 00:00:00', 'Sale Employee'),
+(17, 1, 1000, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', '1000'),
+(18, 5, 1000, NULL, NULL, NULL, 0, 0, '0000-00-00 00:00:00', 'Normal Employee'),
+(19, 1, 1000, NULL, NULL, NULL, 0, 900, '0000-00-00 00:00:00', '1000 n'),
+(20, 4, 3000, NULL, NULL, NULL, 0, 2655, '0000-00-00 00:00:00', '3000 n'),
+(21, 7, 100, 40, NULL, NULL, 0, 3540, '0000-00-00 00:00:00', '40 100 hourly'),
+(22, 7, 100, 40, NULL, NULL, 0, 3540, '0000-00-00 00:00:00', '40 100 hourly'),
+(23, 8, 1000, NULL, 10000, 0.05, 0, 1350, '0000-00-00 00:00:00', '1000 10.000 0.05');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
