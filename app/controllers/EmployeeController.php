@@ -45,7 +45,7 @@ class EmployeeController extends \BaseController {
         {
             //FOR employee_type =1
             $salary->basic_salary = Input::get('salary');
-            $salary->net_salary = $salary->basic_salary;
+            $grossSalary = $salary->basic_salary;
         }
 
 
@@ -56,10 +56,10 @@ class EmployeeController extends \BaseController {
             $salary->basic_salary = Input::get('wage');
             if($salary->worked_hour >40)
             {
-                $salary->net_salary =  ($salary->worked_hour -40) *  $salary->basic_salary *1.5 +  $salary->basic_salary*$salary->worked_hour;
+                $grossSalary =  ($salary->worked_hour -40) *  $salary->basic_salary *1.5 +  $salary->basic_salary*$salary->worked_hour;
             }
             else{
-                $salary->net_salary =    $salary->basic_salary*$salary->worked_hour;
+                $grossSalary =    $salary->basic_salary*$salary->worked_hour;
             }
         }
 
@@ -70,56 +70,56 @@ class EmployeeController extends \BaseController {
             $salary->basic_salary = Input::get('basic_salary');
             $salary->gross_sale = Input::get('gross_saled');
             $salary->commission_rate = Input::get('commission_rate');
-            $salary->net_salary = $salary->basic_salary + $salary->commission_rate*$salary->gross_sale;
+            $grossSalary = $salary->basic_salary + $salary->commission_rate*$salary->gross_sale;
         }
 
         //Calculate net salary after paying National Pesnion (NP)
 
-        if($salary->net_salary < 2000)
+        if($grossSalary < 2000)
         {
-            //net salary for National Pesion (NP) is:
-            $salaryNP = 0.05 * $salary->net_salary ;
+            //net salary after paying  for National Pesion (NP) is:
+            $salaryBeforeTax = 0.95 * $grossSalary ;
         }
 
-        if(( $salary->net_salary >= 2000)&&( $salary->net_salary < 6000))
+        if(( $grossSalary >= 2000)&&( $grossSalary < 6000))
         {
-            $salaryNP = 0.065 * $salary->net_salary ;
+            $salaryBeforeTax = 0.935 * $grossSalary ;
         }
 
 
-        if(( $salary->net_salary >= 6000)&&( $salary->net_salary < 10000))
+        if(( $grossSalary >= 6000)&&( $grossSalary < 10000))
         {
-            $salaryNP = 0.075 * $salary->net_salary ;
+            $salaryBeforeTax = 0.925 * $grossSalary ;
         }
 
           //Calculate net salary after paying Tax
 
-        if($salary->net_salary < 5000)
+        if($salaryBeforeTax < 5000)
         {
             //net salary for Tax is:
-            $salaryTax = 0.05 * $salary->net_salary ;
+            $NetSalary = 0.95 * $salaryBeforeTax ;
         }
 
-        if(( $salary->net_salary >= 5000)&&( $salary->net_salary < 10000))
+        if(( $salaryBeforeTax >= 5000)&&( $salaryBeforeTax < 10000))
         {
-            $salaryTax = 0.1 * $salary->net_salary ;
+            $NetSalary = 0.9 * $salaryBeforeTax ;
         }
 
 
-        if(( $salary->net_salary >= 10000)&&( $salary->net_salary < 20000))
+        if(( $salaryBeforeTax >= 10000)&&( $salaryBeforeTax < 20000))
         {
-            $salaryTax = 0.15 * $salary->net_salary ;
+            $NetSalary = 0.85 * $salaryBeforeTax ;
         }
         //Real salary
+       /* echo($grossSalary);echo("</br>");
+        echo($salaryBeforeTax);echo("</br>");
 
-       /* echo($salaryNP);echo("</br>");
-        echo($salaryTax);
-        dd($salary->net_salary );*/
-        $salary->net_salary = $salary->net_salary  - $salaryNP -   $salaryTax ;
-
+        dd($NetSalary );*/
+        $salary->net_salary = $NetSalary ;
+        $salary->gross_salary =   $grossSalary ;
 
         $salary->comment = Input::get('comment');
-
+        $salary->created_date = date('Y-m-d');
         $salary->user_id = Input::get('id');
 
         //dd($salary->net_salary);
