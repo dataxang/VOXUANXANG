@@ -2,7 +2,6 @@
 class User extends Eloquent{
     public $table ='tbl_user';
     public static function check_login($user_input,$password){
-
         $array1 = array('user_input'=>$user_input);
         $rules = array('user_input'=>'email');
 
