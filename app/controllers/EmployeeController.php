@@ -1,6 +1,4 @@
 <?php
-
-
 class EmployeeController extends \BaseController {
     /**
      * Display a listing of the resource.
@@ -33,7 +31,6 @@ class EmployeeController extends \BaseController {
         {
             return Redirect::route('users.index');
         }
-       // return "dddd";
         return View::make('employee.salary', compact('user','employeeType'));
     }
 
@@ -77,7 +74,6 @@ class EmployeeController extends \BaseController {
 
         if($grossSalary < 2000)
         {
-            //net salary after paying  for National Pesion (NP) is:
             $salaryBeforeTax = 0.95 * $grossSalary ;
         }
 
@@ -96,7 +92,6 @@ class EmployeeController extends \BaseController {
 
         if($salaryBeforeTax < 5000)
         {
-            //net salary for Tax is:
             $NetSalary = 0.95 * $salaryBeforeTax ;
         }
 
@@ -104,17 +99,10 @@ class EmployeeController extends \BaseController {
         {
             $NetSalary = 0.9 * $salaryBeforeTax ;
         }
-
-
         if(( $salaryBeforeTax >= 10000)&&( $salaryBeforeTax < 20000))
         {
             $NetSalary = 0.85 * $salaryBeforeTax ;
         }
-        //Real salary
-       /* echo($grossSalary);echo("</br>");
-        echo($salaryBeforeTax);echo("</br>");
-
-        dd($NetSalary );*/
         $salary->net_salary = $NetSalary ;
         $salary->gross_salary =   $grossSalary ;
 
@@ -122,9 +110,7 @@ class EmployeeController extends \BaseController {
         $salary->created_date = date('Y-m-d');
         $salary->user_id = Input::get('id');
 
-        //dd($salary->net_salary);
         $salary->save();
-        //Session::flash('message', 'My message');
         return Redirect::back()->with('message','Save Successful !');
     }
 
