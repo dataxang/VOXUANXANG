@@ -1,13 +1,16 @@
 <?php
-include_once(__DIR__ . "/../TestBase.php");
-include_once(__SITE_PATH . '/models/Users.php');
+include_once(__DIR__ . "/../TestCase.php");
+include_once(__DIR__ . "/../../configure.php");
+include_once(__SITE_PATH . '/models/User.php');
 
-class UsersBase extends TestBase
+
+
+class UsersBase extends TestCase
 {
 
-    protected $user;
+    public $user;
 
-    protected function setUp()
+    public function setUp()
     {
         parent::setUp();
         // Init or Start Rollback Data If your wanna

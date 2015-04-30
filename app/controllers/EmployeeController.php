@@ -23,10 +23,10 @@ class EmployeeController extends \BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function salaryCalculate($id)
     {
         $user = User::find($id);
-        $employeeType = EType::find($user->employeetype_id);
+        $employeeType = EmployeeType::find($user->employeetype_id);
         if (is_null($user))
         {
             return Redirect::route('users.index');

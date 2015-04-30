@@ -15,6 +15,9 @@
 
                 {{ Form::open(['url'=> '/home', 'class'=>'form']) }}
                 {{ Form::hidden('id', $user->id)}}
+                @if (Session::has('message'))
+                    <div class="alert alert-info">{{ Session::get('message') }}</div>
+                @endif
                 <div class="form-group">
                     <label   class="col-sm-4 control-label">Last name :{{ $user->lastname}}</label>
                     </br>
@@ -24,7 +27,7 @@
                     </br>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" >Employee Type :{{$employeeType->name}}</label>
+                    <label class="col-sm-6 control-label" >Employee Type :{{$employeeType->name}}</label>
                     </br>
                     </br>
                 </div>
@@ -35,9 +38,6 @@
                         case 1:
                             //
                             ?>
-                        @if (Session::has('message'))
-                            <div class="alert alert-info">{{ Session::get('message') }}</div>
-                        @endif
 
                             <div class="form-group">
                                 <label for="salary" class="col-sm-4 control-label">Salary<span class="required">*</span></label>
@@ -52,9 +52,6 @@
                             break;
                         case 2:
                             ?>
-                                @if (Session::has('message'))
-                                    <div class="alert alert-info">{{ Session::get('message') }}</div>
-                                @endif
                                 <div class="form-group">
                                     <label for="hourly_work" class="col-sm-4 control-label">Hourly Work<span class="required">*</span></label>
                                     <input type="text" name="hourly_work" id="hourly_work" class="form-control" placeholder="Hourly Work"
@@ -75,9 +72,6 @@
                         case 3:
 
                             ?>
-                            @if (Session::has('message'))
-                                <div class="alert alert-info">{{ Session::get('message') }}</div>
-                            @endif
                             <div class="form-group">
                                 <label for="basic_salary" class="col-sm-4 control-label">Basic Salary<span class="required">*</span></label>
 

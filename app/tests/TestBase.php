@@ -8,4 +8,16 @@
 
 class TestBase extends PHPUnit_Framework_TestCase {
 
+    public $db;
+
+    protected function setUp()
+    {
+        //Init or Start Rollback Data If you want
+
+    }
+
+    protected function tearDown()
+    {
+
+    }
 }
