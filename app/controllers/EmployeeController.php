@@ -36,7 +36,6 @@ class EmployeeController extends \BaseController {
 
     public function store()
     {
-        $input = array_except(Input::all(), array('_token'));
         $salary = new Salary();
         if(Input::has('salary'))
         {

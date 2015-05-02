@@ -47,16 +47,14 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testing.tbl_user: ~5 rows (approximately)
+-- Dumping data for table testing.tbl_user: ~6 rows (approximately)
 DELETE FROM `tbl_user`;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
 INSERT INTO `tbl_user` (`id`, `employeetype_id`, `username`, `password`, `lastname`, `firstname`, `isaccountant`, `updated_at`, `created_at`, `email`) VALUES
-	(1, 1, 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Admin', 'Pike', 0, '2015-04-25', '2015-04-25', 'admin@gmail.com'),
 	(4, 1, 'hieu', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Hieu', 'Nguyen', 1, '2015-04-25', '2015-04-25', 'hieu@gmail.com'),
 	(5, 1, 'long', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Long', 'Tran', 0, '2015-04-25', '2015-04-25', 'long@gmail.com'),
 	(7, 2, 'hung', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Hung', 'Nguyen', 0, '2015-04-25', '2015-04-25', 'hung@gmail.com'),
-	(8, 3, 'lan', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Lan', 'Pham', 0, '2015-04-25', '2015-04-25', 'lan@gmail.com'),
-	(9, 0, 'xang', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '', '', 0, '2015-04-30', '2015-04-30', 'xang@gmail.com');
+	(8, 3, 'lan', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Lan', 'Pham', 0, '2015-04-25', '2015-04-25', 'lan@gmail.com');
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 
 
@@ -75,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `tbl_weeklysalary` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testing.tbl_weeklysalary: ~26 rows (approximately)
+-- Dumping data for table testing.tbl_weeklysalary: ~27 rows (approximately)
 DELETE FROM `tbl_weeklysalary`;
 /*!40000 ALTER TABLE `tbl_weeklysalary` DISABLE KEYS */;
 INSERT INTO `tbl_weeklysalary` (`id`, `user_id`, `basic_salary`, `worked_hour`, `gross_sale`, `commission_rate`, `gross_salary`, `net_salary`, `created_date`, `comment`) VALUES

@@ -27,7 +27,7 @@ class GetEmployeeTest extends UsersBase {
             'lastname'          =>'Hieu',
             'firstname'          =>'Nguyen',
             'isaccountant'          =>1,
-            'password'          =>'d93a5def7511da3d0f2d171d9c344e91',
+            'password'          =>'8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
             'updated_at'          =>'2015-04-25',
             'created_at'          =>'2015-04-25',
             'email'          =>'hieu@gmail.com'
@@ -58,7 +58,7 @@ class GetEmployeeTest extends UsersBase {
             'lastname'          =>'Hieu',
             'firstname'          =>'Nguyen',
             'isaccountant'          =>1,
-            'password'          =>'d93a5def7511da3d0f2d171d9c344e91',
+            'password'          =>'8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
             'updated_at'          =>'2015-04-25',
             'created_at'          =>'2015-04-25',
             'email'          =>'hieu@gmail.com'
