@@ -84,7 +84,8 @@ class checkLoginTest extends UsersBase {
 
         $expected = true;
         // WHEN
-        $actual = User::check_login($username, md5(sha1($password)));
+        //$actual = User::check_login($username, md5(sha1($password)));
+        $actual = User::check_login($username, hash('sha256',$password));
         // THEN
         $this->assertEquals($expected,$actual);
     }
