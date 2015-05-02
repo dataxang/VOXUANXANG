@@ -35,11 +35,11 @@ Route::filter('check-login',function(){
 		return Redirect::to('login');
 });
 
-Route::get('edit-profile',array('before'=>'check-login',function(){
+/*Route::get('edit-profile',array('before'=>'check-login',function(){
 	return View::make('edit-profile');
-}));
+}));*/
 
-Route::post('register',function() 
+/*Route::post('register',function()
 {
 	$rules=array(
 		'username'=>'required|min:3',
@@ -60,7 +60,7 @@ Route::post('register',function()
 	else
 		echo "Đăng ký KHÔNG thành công!";
 }
-);
+);*/
 
 
 Route::get('login',function() 
@@ -96,11 +96,7 @@ Route::get('logout',function(){
 });
 
 
-Route::get('/home',array('before'=>'check-login', function()
-{
-    return View::make('home');
 
-}));
 
 Route::group(array('before'=>'check-login'),function() {
 	Route::resource('home', 'EmployeeController');//use EmployeeController.php

@@ -8,6 +8,9 @@ class checkLoginTest extends UsersBase {
  * should return error when wrong  accountant username and right password
  * should return error when right accountant username and wrong password
  * should return true when right  accountant username and right password
+ *
+ * should return true when user has been already in DB
+ * should return false when user has not been already in DB
  * */
 
     /**
@@ -89,4 +92,40 @@ class checkLoginTest extends UsersBase {
         // THEN
         $this->assertEquals($expected,$actual);
     }
+
+
+    /**
+     * @author XangVo
+     * @todo test should return true when user has been already in DB
+     *
+     * @access public
+     */
+    public function testShouldReturnTrueWhenUserHasBeenAlreadyInDb()
+    {
+        // GIVEN
+        $username = 'hieu';
+
+        // WHEN
+        $actual = User::check_username($username);
+        // THEN
+        $this->assertTrue(!$actual);
+    }
+
+    /**
+     * @author xangVo
+     * @todo test should return false when user has not been already in DB
+     *
+     * @access public
+     */
+    public function testShouldReturnFalseWhenUserHasNotBeenAlreadyInDb()
+    {
+        // GIVEN
+        $username = 'hieuWrong';
+        // WHEN
+        $actual = User::check_username($username);
+        // THEN
+        $this->assertFalse(!$actual);
+    }
+
+
 }

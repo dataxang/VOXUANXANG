@@ -15,8 +15,8 @@
 	@if(isset($error_message))
 	<label class='error'>{{$error_message}}</label>
 	@endif
-	<p>Bạn chưa có tài khoản,hãy <a href="{{Asset('register')}}">  đăng ký!</a></p>
-	<button class='btn btn-lg btn-primary btn-block'>Đăng nhập</button>
+	<p>Bạn chưa có tài khoản,hãy <a href="{{Asset('register')}}">register</a></p>
+	<button id="dangNhap" class='btn btn-lg btn-primary btn-block'>Đăng nhập</button>
 </form>
 
 @endsection
