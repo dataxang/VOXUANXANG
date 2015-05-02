@@ -4,11 +4,11 @@ class GetLogOutTest  extends  TestCase{
 
     /**
      * @author XangVo
-     * @todo test should return to login page when I log out a user
+     * @todo test should return to login page when  log out a user
      *
      * @access public
      */
-    public function testShouldReturnToLoginPageWhenILogOutAUser()
+    public function testShouldReturnToLoginPageWhenLogOutAUser()
     {
         // GIVEN
 
@@ -20,12 +20,12 @@ class GetLogOutTest  extends  TestCase{
     }
 
     /**
-     * @author HMLong
-     * @todo test should return ok when I call a login page
+     * @author XangVo
+     * @todo test should return ok when  call a login page
      *
      * @access public
      */
-    public function testShouldReturnOkWhenICallALoginPage()
+    public function testShouldReturnOkWhenCallALoginPage()
     {
         // GIVEN
 
@@ -40,11 +40,11 @@ class GetLogOutTest  extends  TestCase{
 
     /**
      * @author xangvo
-     * @todo test should return to home page when I log in ok
+     * @todo test should return to home page when  log in ok
      *
      * @access public
      */
-    public function testShouldReturnToHomePageWhenILogInOk()
+    public function testShouldReturnToHomePageWhenLogInOk()
     {
         // GIVEN
         $client = static::createClient();
@@ -98,11 +98,11 @@ class GetLogOutTest  extends  TestCase{
 
     /**
      * @author XangVo
-     * @todo test should return to Register page when I click register link
+     * @todo test should return to Register page when  click register link
      *
      * @access public
      */
-    public function testShouldReturnToRegisterPageWhenIClickRegisterLink()
+    public function testShouldReturnToRegisterPageWhenClickRegisterLink()
     {
         // GIVEN
         $expected = '<a href="http://localhost:81/register">register</a>';
@@ -116,11 +116,11 @@ class GetLogOutTest  extends  TestCase{
 
     /**
      * @author xangvo
-     * @todo test should redirect to register page when I enter link
+     * @todo test should redirect to register page when  enter link
      *
      * @access public
      */
-    public function testShouldRedirectToRegisterPageWhenIEnterLink()
+    public function testShouldRedirectToRegisterPageWhenEnterLink()
     {
         // GIVEN
 
@@ -133,6 +133,6 @@ class GetLogOutTest  extends  TestCase{
         );
     }
 
-    
+
 
 }

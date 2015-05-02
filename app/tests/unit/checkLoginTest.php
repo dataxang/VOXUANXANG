@@ -4,9 +4,9 @@ include_once("UsersBase.php");
 class checkLoginTest extends UsersBase {
 /*
  * @todo :
- * should return error when wrong accountant username and wrong password
- * should return error when wrong  accountant username and right password
- * should return error when right accountant username and wrong password
+ * should return false when wrong accountant username and wrong password
+ * should return false when wrong  accountant username and right password
+ * should return false when right accountant username and wrong password
  * should return true when right  accountant username and right password
  *
  * should return true when user has been already in DB
@@ -15,11 +15,11 @@ class checkLoginTest extends UsersBase {
 
     /**
      * @author XangVo
-     * @todo test should return error when wrong accountant username and wrong password
+     * @todo test should return false when wrong accountant username and wrong password
      *
      * @access public
      */
-    public function testShouldReturnErrorWhenWrongAccountantUsernameAndWrongPassword()
+    public function testShouldReturnFalseWhenWrongAccountantUsernameAndWrongPassword()
     {
         // GIVEN
         $username = 'admin';
@@ -27,20 +27,18 @@ class checkLoginTest extends UsersBase {
 
         $expected =  true;
         // WHEN
-       $actual = User::check_login($username, md5(sha1($password)));
-       // $actual = 'xang';
-       // $actual = (array) $actual;
+       $actual = User::check_login($username, hash('sha256',$password));
         // THEN
         $this->assertNotEquals($expected, $actual);
     }
 
     /**
      * @author XangVo
-     * @todo test should return error when wrong  accountant username and right password
+     * @todo test should return false when wrong  accountant username and right password
      *
      * @access public
      */
-    public function testShouldReturnErrorWhenWrongAccountantUsernameAndRightPassword()
+    public function testShouldReturnFalseWhenWrongAccountantUsernameAndRightPassword()
     {
         // GIVEN
         $username = 'long';
@@ -48,7 +46,7 @@ class checkLoginTest extends UsersBase {
 
         $expected = true;
         // WHEN
-        $actual = User::check_login($username, md5(sha1($password)));
+        $actual = User::check_login($username,hash('sha256',$password));
 
         // THEN
         $this->assertNotEquals($expected,$actual);
@@ -56,11 +54,11 @@ class checkLoginTest extends UsersBase {
 
     /**
      * @author XangVo
-     * @todo test should return error when right accountant username and wrong password
+     * @todo test should return false when right accountant username and wrong password
      *
      * @access public
      */
-    public function testShouldReturnErrorWhenRightAccountantUsernameAndWrongPassword()
+    public function testShouldReturnFalseWhenRightAccountantUsernameAndWrongPassword()
     {
         // GIVEN
         $username = 'hieu';
@@ -68,7 +66,7 @@ class checkLoginTest extends UsersBase {
 
         $expected = false;
         // WHEN
-        $actual = User::check_login($username, md5(sha1($password)));
+        $actual = User::check_login($username,hash('sha256',$password));
         // THEN
         $this->assertEquals($expected,$actual);
     }
@@ -87,7 +85,6 @@ class checkLoginTest extends UsersBase {
 
         $expected = true;
         // WHEN
-        //$actual = User::check_login($username, md5(sha1($password)));
         $actual = User::check_login($username, hash('sha256',$password));
         // THEN
         $this->assertEquals($expected,$actual);
@@ -96,35 +93,35 @@ class checkLoginTest extends UsersBase {
 
     /**
      * @author XangVo
-     * @todo test should return true when user has been already in DB
+     * @todo test should return false when user has been already in DB
      *
      * @access public
      */
-    public function testShouldReturnTrueWhenUserHasBeenAlreadyInDb()
+    public function testShouldReturnFalseWhenUserHasBeenAlreadyInDb()
     {
         // GIVEN
         $username = 'hieu';
 
         // WHEN
-        $actual = User::check_username($username);
+        $actual = User::checkIfExistUsername($username);
         // THEN
-        $this->assertTrue(!$actual);
+        $this->assertFalse($actual);
     }
 
     /**
      * @author xangVo
-     * @todo test should return false when user has not been already in DB
+     * @todo test should return true when user has not been already in DB
      *
      * @access public
      */
-    public function testShouldReturnFalseWhenUserHasNotBeenAlreadyInDb()
+    public function testShouldReturnTrueWhenUserHasNotBeenAlreadyInDb()
     {
         // GIVEN
         $username = 'hieuWrong';
         // WHEN
-        $actual = User::check_username($username);
+        $actual = User::checkIfExistUsername($username);
         // THEN
-        $this->assertFalse(!$actual);
+        $this->assertTrue($actual);
     }
 
 

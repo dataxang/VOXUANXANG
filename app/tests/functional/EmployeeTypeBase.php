@@ -23,9 +23,9 @@ class EmployeeTypeBase extends TestCase{
         $username = 'hieu';
 
         // WHEN
-        $actual = User::check_username($username);
+        $actual = User::checkIfExistUsername($username);
         // THEN
-        $this->assertTrue(!$actual);
+        $this->assertFalse($actual);
     }
 
     /**
@@ -39,9 +39,9 @@ class EmployeeTypeBase extends TestCase{
         // GIVEN
         $username = 'hieuWrong';
         // WHEN
-        $actual = User::check_username($username);
+        $actual = User::checkIfExistUsername($username);
         // THEN
-        $this->assertFalse(!$actual);
+        $this->assertTrue($actual);
     }
 
 }

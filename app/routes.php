@@ -12,12 +12,12 @@
 */
 Route::group(array('prefix'=>'check'),function() {
 	Route::post('check-username',function(){
-		if(User::check_username(Input::get('username')))
+		if(User::checkIfExistUsername(Input::get('username')))
 			return "true";
 		else return "false";
 	});
 	Route::post('check-email',function(){
-		if(User::check_email(Input::get('email')))
+		if(User::checkIfExistEmail(Input::get('email')))
 			return "true";
 		else return "false";
 
@@ -79,13 +79,11 @@ Route::post('login',function()
 				Session::put('logined','true');
                 Session::put('current_user', Input::get('user_input'));
 				return Redirect::to('home');
-				// return "Đăng nhập  thành công!";
 			}
 			
 		else
 			{
 				return View::make('login')->with('error_message','Tên đăng nhập hoặc mật khẩu không đúng');
-				// return "Đăng nhập KHÔNG thành công!";
 			}
 	}
 );

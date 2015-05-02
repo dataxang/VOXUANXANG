@@ -5,18 +5,18 @@ class GetEmployeeTest extends UsersBase {
 
     /*
      * @todo
-     * should return employee information when I get real employee ID
-     * should return false when I get wrong employee ID
+     * should return employee information when  get real employee ID
+     * should return false when  get wrong employee ID
      *
      * */
 
     /**
      * @author XangVo
-     * @todo test should return employee information when I get real employee ID
+     * @todo test should return employee information when  get real employee ID
      *
      * @access public
      */
-    public function testShouldReturnEmployeeInformationWhenIGetRealEmployeeId()
+    public function testShouldReturnEmployeeInformationWhenGetRealEmployeeId()
     {
         // GIVEN
         $employeeID = 4;
@@ -43,11 +43,11 @@ class GetEmployeeTest extends UsersBase {
 
     /**
      * @author XangVo
-     * @todo test should return false when I get wrong employee ID
+     * @todo test should return false when  get wrong employee ID
      *
      * @access public
      */
-    public function testShouldReturnFalseWhenIGetWrongEmployeeId()
+    public function testShouldReturnFalseWhenGetWrongEmployeeId()
     {
         // GIVEN
         $employeeID = 9;

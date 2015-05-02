@@ -23,13 +23,13 @@ class User extends  Model{
 
     }
 
-    public static function check_username($username){
+    public static function checkIfExistUsername($username){
         if(User::where('username','=',$username)->count()>0)
             return false;
         else return true;
     }
 
-    public static function check_email($email){
+    public static function checkIfExistEmail($email){
         if(User::where('email','=',$email)->count()>0)
             return false;
         else return true;
