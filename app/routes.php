@@ -101,6 +101,12 @@ Route::get('/home',array('before'=>'check-login', function()
     return View::make('home');
 
 }));
-Route::resource('employee' , 'EmployeeController@salaryCalculate' );
-Route::resource('home', 'EmployeeController');//use UController.php
+
+Route::group(array('before'=>'check-login'),function() {
+	Route::resource('home', 'EmployeeController');//use UController.php
+	Route::resource('employee' , 'EmployeeController@salaryCalculate' );
+
+});
+
+
 
