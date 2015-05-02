@@ -8,14 +8,9 @@ class EmployeeController extends \BaseController {
     public function index()
     {
         $users = User::paginate(10);
-        //dd($users);
         return View::make('home', compact('users'));
     }
-    public  function CalculateSalary(){
-        $users = User::paginate(10);
-        return View::make('employee.salary', compact('users'));
-    }
-
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -86,6 +81,12 @@ class EmployeeController extends \BaseController {
         {
             $salaryBeforeTax = 0.925 * $grossSalary ;
         }
+        if($grossSalary >= 10000)
+        {
+            //TH dac biet
+            return Redirect::back()->with('message','This salary is not in Scope of salary !');
+
+        }
 
           //Calculate net salary after paying Tax
 
@@ -109,8 +110,53 @@ class EmployeeController extends \BaseController {
         $salary->created_date = date('Y-m-d');
         $salary->user_id = Input::get('id');
 
-        $salary->save();
-        return Redirect::back()->with('message','Save Successful !');
+        if(Input::has('salary'))
+        {
+            $rules = array(
+                'salary'    =>  'required|numeric',
+            );
+            if (! Validator::make(Input::all(), $rules)->fails()) {
+                $salary->save();
+
+                return Redirect::back()->with('message', 'Save Successful !');
+            } else {
+                //Salary must be numeric!
+                return Redirect::back()->with('message', 'Salary must be numeric !');
+            }
+        }
+        if(Input::has('hourly_work')&&Input::has('wage'))
+        {
+            $rules = array(
+                'hourly_work'    =>  'required|numeric',
+                'wage'    =>  'required|numeric',
+            );
+            if (! Validator::make(Input::all(), $rules)->fails()) {
+                $salary->save();
+
+                return Redirect::back()->with('message', 'Save Successful !');
+            } else {
+                //Salary must be numeric!
+                return Redirect::back()->with('message', 'The working hour & Wage must be numeric !');
+            }
+
+        }
+        if(Input::has('commission_rate')&&Input::has('basic_salary')&&Input::has('gross_saled'))
+        {
+            $rules = array(
+                'commission_rate'    =>  'required|numeric',
+                'basic_salary'    =>  'required|numeric',
+                'gross_saled'    =>  'required|numeric',
+            );
+            if (! Validator::make(Input::all(), $rules)->fails()) {
+                $salary->save();
+
+                return Redirect::back()->with('message', 'Save Successful !');
+            } else {
+                //Salary must be numeric!
+                return Redirect::back()->with('message', 'The commission rate & basic salary and gross sales must be numeric !');
+            }
+        }
+
     }
 
 

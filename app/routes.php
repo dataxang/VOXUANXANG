@@ -103,7 +103,7 @@ Route::get('/home',array('before'=>'check-login', function()
 }));
 
 Route::group(array('before'=>'check-login'),function() {
-	Route::resource('home', 'EmployeeController');//use UController.php
+	Route::resource('home', 'EmployeeController');//use EmployeeController.php
 	Route::resource('employee' , 'EmployeeController@salaryCalculate' );
 
 });
