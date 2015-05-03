@@ -16,12 +16,12 @@ Route::group(array('prefix'=>'check'),function() {
 			return "true";
 		else return "false";
 	});
-	Route::post('check-email',function(){
+/*	Route::post('check-email',function(){
 		if(User::checkIfExistEmail(Input::get('email')))
 			return "true";
 		else return "false";
 
-	});
+	});*/
 });
 
 Route::get('register',function()
@@ -73,8 +73,8 @@ Route::get('login',function()
 
 Route::post('login',function() 
 	{
-		//if(User::check_login(Input::get('user_input'),md5(sha1(Input::get('password')))))
-		if(User::check_login(Input::get('user_input'),hash('sha256',Input::get('password'))))
+		//if(User::checkIfLogInOk(Input::get('user_input'),md5(sha1(Input::get('password')))))
+		if(User::checkIfLogInOk(Input::get('user_input'),hash('sha256',Input::get('password'))))
 			{
 				Session::put('logined','true');
                 Session::put('current_user', Input::get('user_input'));

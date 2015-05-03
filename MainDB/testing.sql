@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `created_at` date DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testing.tbl_user: ~6 rows (approximately)
+-- Dumping data for table testing.tbl_user: ~4 rows (approximately)
 DELETE FROM `tbl_user`;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
 INSERT INTO `tbl_user` (`id`, `employeetype_id`, `username`, `password`, `lastname`, `firstname`, `isaccountant`, `updated_at`, `created_at`, `email`) VALUES
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS `tbl_weeklysalary` (
   `created_date` datetime NOT NULL,
   `comment` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testing.tbl_weeklysalary: ~27 rows (approximately)
+-- Dumping data for table testing.tbl_weeklysalary: ~63 rows (approximately)
 DELETE FROM `tbl_weeklysalary`;
 /*!40000 ALTER TABLE `tbl_weeklysalary` DISABLE KEYS */;
 INSERT INTO `tbl_weeklysalary` (`id`, `user_id`, `basic_salary`, `worked_hour`, `gross_sale`, `commission_rate`, `gross_salary`, `net_salary`, `created_date`, `comment`) VALUES
@@ -103,7 +103,43 @@ INSERT INTO `tbl_weeklysalary` (`id`, `user_id`, `basic_salary`, `worked_hour`, 
 	(24, 1, 2232, NULL, NULL, NULL, 2232, 1983, '2015-04-27 00:00:00', '2232'),
 	(25, 1, 5000, NULL, NULL, NULL, 5000, 4441, '2015-04-28 00:00:00', '5000 n '),
 	(26, 1, 5000, NULL, NULL, NULL, 5000, 4441, '2015-04-30 00:00:00', '5000 n'),
-	(27, 1, 5000, NULL, NULL, NULL, 5000, 4441, '2015-04-30 00:00:00', '5000 n ');
+	(27, 1, 5000, NULL, NULL, NULL, 5000, 4441, '2015-04-30 00:00:00', '5000 n '),
+	(28, 8, 0, NULL, 100000, 0.05, 5000, 4441, '2015-05-02 00:00:00', 'eeeee'),
+	(29, 4, 650, NULL, NULL, NULL, 650, 587, '2015-05-02 00:00:00', '650 n'),
+	(30, 7, 100, 45, NULL, NULL, 5250, 4663, '2015-05-02 00:00:00', '45h 100'),
+	(31, 8, 400, NULL, 2222, 0.05, 511, 461, '2015-05-03 00:00:00', 'Sale Employee'),
+	(32, 5, 500, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 's'),
+	(33, 5, 500, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 'w'),
+	(34, 4, 1100, NULL, NULL, NULL, 1100, 993, '2015-05-03 00:00:00', 'w'),
+	(35, 4, 500, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 's'),
+	(36, 4, 500, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 'g'),
+	(37, 5, 500, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 'd'),
+	(38, 5, 500, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 'd'),
+	(39, 4, 666, NULL, NULL, NULL, 666, 601, '2015-05-03 00:00:00', 's'),
+	(40, 4, 1100, NULL, NULL, NULL, 1100, 993, '2015-05-03 00:00:00', 'e'),
+	(41, 4, 0, NULL, NULL, NULL, 5001, 4442, '2015-05-03 00:00:00', 's'),
+	(42, 7, 0, NULL, NULL, NULL, 6500, 5411, '2015-05-03 00:00:00', '50h 100$'),
+	(43, 4, 0, NULL, NULL, NULL, 1111, 1003, '2015-05-03 00:00:00', 'n1111'),
+	(44, 4, 0, NULL, NULL, NULL, 600, 542, '2015-05-03 00:00:00', '600 n'),
+	(45, 4, 0, NULL, NULL, NULL, 601, 542, '2015-05-03 00:00:00', '601n'),
+	(46, 4, 0, NULL, NULL, NULL, 555, 501, '2015-05-03 00:00:00', '555 n'),
+	(47, 5, 0, NULL, NULL, NULL, 700, 632, '2015-05-03 00:00:00', '700 n'),
+	(48, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 'e'),
+	(49, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', 'sdf'),
+	(50, 4, 0, NULL, NULL, NULL, 356, 321, '2015-05-03 00:00:00', 'sdf'),
+	(51, 4, 0, NULL, NULL, NULL, 123, 111, '2015-05-03 00:00:00', '123 n'),
+	(52, 8, 0, NULL, NULL, NULL, 250, 226, '2015-05-03 00:00:00', '200 1000 0.05 sale'),
+	(53, 4, 0, NULL, NULL, NULL, 1122, 1013, '2015-05-03 00:00:00', '1122'),
+	(54, 4, 0, NULL, NULL, NULL, 2322, 2063, '2015-05-03 00:00:00', 's'),
+	(55, 4, 0, NULL, NULL, NULL, 321, 290, '2015-05-03 00:00:00', 'ss'),
+	(56, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', '500$'),
+	(57, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', '500$'),
+	(58, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', '500$'),
+	(59, 4, 0, NULL, NULL, NULL, 222, 200, '2015-05-03 00:00:00', '22'),
+	(60, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', '500$'),
+	(61, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', '500$'),
+	(62, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', '500$'),
+	(63, 4, 0, NULL, NULL, NULL, 500, 451, '2015-05-03 00:00:00', '500$');
 /*!40000 ALTER TABLE `tbl_weeklysalary` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

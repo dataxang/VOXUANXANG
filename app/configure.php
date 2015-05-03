@@ -25,4 +25,7 @@ define("SAVE_OK","Saved successfully!");
 define("WARNING1",'Salary must be numeric !');
 define("WARNING2",'The working hour & Wage must be numeric !');
 define("WARNING3",'The commission rate, basic salary and gross sales must be numeric !');
+define("OUT_OF_SALARY",'This salary is not in Scope of salary !');
+
+
 ?>

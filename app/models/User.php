@@ -2,7 +2,7 @@
  use Illuminate\Database\Eloquent\Model;
 class User extends  Model{
     public $table ='tbl_user';
-    public static function check_login($user_input,$password){
+    public static function checkIfLogInOk($user_input,$password){
 
             $check = User::where('username','=',$user_input)->where('password','=',$password)->where('isaccountant','=','1')->count();
 
@@ -19,11 +19,11 @@ class User extends  Model{
         else return true;
     }
 
-    public static function checkIfExistEmail($email){
+  /*  public static function checkIfExistEmail($email){
         if(User::where('email','=',$email)->count()>0)
             return false;
         else return true;
-    }
+    }*/
 
     public function getEmployee($employeeID){
         try {

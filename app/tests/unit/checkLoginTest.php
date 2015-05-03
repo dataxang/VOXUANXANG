@@ -27,7 +27,7 @@ class checkLoginTest extends UsersBase {
 
         $expected =  true;
         // WHEN
-       $actual = User::check_login($username, hash('sha256',$password));
+       $actual = User::checkIfLogInOk($username, hash('sha256',$password));
         // THEN
         $this->assertNotEquals($expected, $actual);
     }
@@ -46,7 +46,7 @@ class checkLoginTest extends UsersBase {
 
         $expected = true;
         // WHEN
-        $actual = User::check_login($username,hash('sha256',$password));
+        $actual = User::checkIfLogInOk($username,hash('sha256',$password));
 
         // THEN
         $this->assertNotEquals($expected,$actual);
@@ -66,7 +66,7 @@ class checkLoginTest extends UsersBase {
 
         $expected = false;
         // WHEN
-        $actual = User::check_login($username,hash('sha256',$password));
+        $actual = User::checkIfLogInOk($username,hash('sha256',$password));
         // THEN
         $this->assertEquals($expected,$actual);
     }
@@ -85,7 +85,7 @@ class checkLoginTest extends UsersBase {
 
         $expected = true;
         // WHEN
-        $actual = User::check_login($username, hash('sha256',$password));
+        $actual = User::checkIfLogInOk($username, hash('sha256',$password));
         // THEN
         $this->assertEquals($expected,$actual);
     }
