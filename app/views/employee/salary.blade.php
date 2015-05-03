@@ -13,11 +13,13 @@
             <div class="jumbotron text-center">
                 {{--<h1>Employee ID: {{ $user->id }}</h1>--}}
 
-                {{ Form::open(['url'=> '/home', 'class'=>'form']) }}
+                {{ Form::open(['url'=> '/salary', 'class'=>'form']) }}
                 {{ Form::hidden('id', $user->id)}}
+
                 @if (Session::has('message'))
                     <div class="alert alert-info">{{ Session::get('message') }}</div>
                 @endif
+
                 <div class="form-group">
                     <label   class="col-sm-4 control-label">Last name :{{ $user->lastname}}</label>
                     </br>

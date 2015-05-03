@@ -99,6 +99,8 @@ Route::get('logout',function(){
 Route::group(array('before'=>'check-login'),function() {
 	Route::resource('home', 'EmployeeController');//use EmployeeController.php
 	Route::resource('employee' , 'EmployeeController@salaryCalculate' );
+	Route::resource('salary' , 'SalaryController@salaryCalculate' );
+	Route::resource('salary' , 'SalaryController' );
 
 });
 
