@@ -61,6 +61,4 @@ class GrossSalaryByHourlySalaryTest extends  SalaryBase {
         $this->assertEquals($expected,$actual);
     }
 
-
-
 }

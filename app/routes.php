@@ -90,7 +90,9 @@ Route::post('login',function()
 
 Route::get('logout',function(){
 	Session::forget('logined');
-	return Redirect::to('login');
+	//return Redirect::to('login');
+    return Redirect::to('/login')
+        ->with('message', 'You are now logged out');
 });
 
 
