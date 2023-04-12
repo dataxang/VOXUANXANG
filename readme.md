@@ -23,3 +23,27 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+Please read at: https://github.com/dataxang/examinationq2
+
+Programming Skill Examination.
+			Company: Transcosmos Technologic Arts
+			
+			6.Requirement.
+a.Please implement a web application:
+i.Allow user login in by user name and password(SHA-2)
+1.If the user is not active, he/she does not allow to login.
+2.When user login to the system, the password has to encrypt by SHA-2 before check it in user table.
+3.In the SHA-2, the default digest algorithm uses is SHA-256.
+
+ii.Validation all the required field.
+iii.Check validation of quantity when adding product to cart
+iv.Check validation of coupon: used, inused, expired, not exist,
+v.This web application should work well on IE and Firefox browser.
+vi.Write Todo List and Unit Test for this program.
+vii.You can apply a framework you are familiar.
+viii.Make sure you develop good code quality, test coverage and Security.
+ix.Write steps how to set up and run your project in order to Group Leader to check
+Write Integration Test is plus if you have time.
+
