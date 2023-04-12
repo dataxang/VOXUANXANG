@@ -4,7 +4,7 @@ class User extends  Model{
     public $table ='tbl_user';
     public static function checkIfLogInOk($user_input,$password){
 
-            $check = User::where('username','=',$user_input)->where('password','=',$password)->where('isaccountant','=','1')->count();
+            $check = User::where('user_name','=',$user_input)->where('password','=',$password)->where('isactive','=','1')->count();
 
         if($check>0)
             return true;

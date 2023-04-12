@@ -10,6 +10,7 @@
 
 </head>
 <body>
+
 <header>
     <nav class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,7 +28,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{Asset('home')}}">Home</a></li>
+                <li><a href="{{Asset('listproduct')}}">Home</a></li>
                 <li><a href="{{Asset('logout')}}"> Logout<?php echo("(".Session::get('current_user').")"); ?></a></li>
                 <!--way2 <li><a href="./logout">Logout</a></li> -->
             </ul>

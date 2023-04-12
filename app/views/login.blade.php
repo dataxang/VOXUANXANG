@@ -9,14 +9,13 @@
 	{{Session::get('register_success')}}
 	<?php Session::forget('register_success');?>
 	@endif
-	<h2> Đăng nhập</h2>
+	<h2>Login</h2>
 	<input type ='text' name='user_input' id='user_input' placeholder='Username or email' class='form-control'/>
 	<input type ='password' name='password' id='password'  placeholder='Password'  class='form-control'/>
 	@if(isset($error_message))
 	<label class='error'>{{$error_message}}</label>
 	@endif
-	<p>Bạn chưa có tài khoản,hãy <a href="{{Asset('register')}}">register</a></p>
-	<button id="dangNhap" class='btn btn-lg btn-primary btn-block'>Đăng nhập</button>
+	<button id="dangNhap" class='btn btn-lg btn-primary btn-block'>Login</button>
 </form>
 
 @endsection

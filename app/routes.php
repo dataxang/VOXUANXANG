@@ -35,32 +35,6 @@ Route::filter('check-login',function(){
 		return Redirect::to('login');
 });
 
-/*Route::get('edit-profile',array('before'=>'check-login',function(){
-	return View::make('edit-profile');
-}));*/
-
-/*Route::post('register',function()
-{
-	$rules=array(
-		'username'=>'required|min:3',
-		'password'=>'required|min:6',
-		'email'=>'required|email',
-		);
-	if(!Validator::make(Input::all(),$rules)->fails()){
-			$user = new User();
-			$user->username= Input::get('username');
-			//$user->password= md5(sha1(Input::get('password')));
-             $user->password = hash('sha256', Input::get('password'));
-			$user->email= Input::get('email');//Temp comment for not using email
-			$user->save();
-			Session::put('register_success',Input::get('username')." đã đăng ký thành công");
-			return Redirect::to('login');
-
-	}
-	else
-		echo "Đăng ký KHÔNG thành công!";
-}
-);*/
 
 
 Route::get('login',function() 
@@ -73,12 +47,11 @@ Route::get('login',function()
 
 Route::post('login',function() 
 	{
-		//if(User::checkIfLogInOk(Input::get('user_input'),md5(sha1(Input::get('password')))))
 		if(User::checkIfLogInOk(Input::get('user_input'),hash('sha256',Input::get('password'))))
 			{
 				Session::put('logined','true');
                 Session::put('current_user', Input::get('user_input'));
-				return Redirect::to('home');
+				return Redirect::to('listproduct');
 			}
 			
 		else
@@ -96,13 +69,17 @@ Route::get('logout',function(){
 });
 
 
+Route::get("cartdetail", function(){
+	return View::make("cartdetail");
 
+});
 
 Route::group(array('before'=>'check-login'),function() {
-	Route::resource('home', 'EmployeeController');//use EmployeeController.php
+	Route::resource('listproduct', 'ProductController');//use ProductController.php
 	Route::resource('employee' , 'EmployeeController@salaryCalculate' );
 	Route::resource('salary' , 'SalaryController@salaryCalculate' );
 	Route::resource('salary' , 'SalaryController' );
+	Route::resource('cartdetail' , 'OrderDetailController' );
 
 });
 

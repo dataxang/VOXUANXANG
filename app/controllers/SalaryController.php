@@ -6,7 +6,7 @@ class SalaryController  extends \BaseController{
     public function index()
     {
         $users = User::paginate(10);
-        return View::make('home', compact('users'));
+        return View::make('cartdetail', compact('users'));
     }
 
 
